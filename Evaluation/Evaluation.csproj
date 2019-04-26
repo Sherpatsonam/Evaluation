@@ -178,6 +178,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\DeptHead\" />
+    <Folder Include="Views\Student\Appearence\" />
     <Folder Include="Views\Teacher\" />
   </ItemGroup>
   <ItemGroup>
