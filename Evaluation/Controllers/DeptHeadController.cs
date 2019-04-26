@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Evaluation.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,11 @@ namespace Evaluation.Controllers
 {
     public class DeptHeadController : Controller
     {
+        private EvaluationDB db = new EvaluationDB();
         // GET: DeptHead
-        public ActionResult Index()
+        public ActionResult getEvaluations()
         {
-            return View();
+            return View(db.Evaluations.ToList());
         }
     }
 }

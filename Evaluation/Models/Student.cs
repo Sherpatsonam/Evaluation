@@ -12,5 +12,7 @@ namespace Evaluation.Models
        
         public string Semester { get; set; }
         public int Year { get; set; }
+
+        public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

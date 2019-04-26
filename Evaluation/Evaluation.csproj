@@ -174,10 +174,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Student\Evaluation.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\DeptHead\getEvaluations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\DeptHead\" />
     <Folder Include="Views\Teacher\" />
   </ItemGroup>
   <ItemGroup>
