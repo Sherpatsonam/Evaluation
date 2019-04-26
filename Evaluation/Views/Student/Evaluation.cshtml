@@ -9,30 +9,83 @@
 
 
 
-<h2>Evaluation</h2>
 
-<h2>Student Name: (Last, First), </h2><input id="Text1" type="text" /><span style="font-size 12"></span><h2>Student ID</h2><input id="Text1" type="text" />
-<h2>Semester being evaluated</h2><select id="Select1">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluation</title>
+    <style>
+        .Title {
+            font-family: MyFont, sans-serif;
+            font-size: 24px;
+        }
+          .Text
+          {
+              font-family: MyFont, Arial;
+              font-size: 14px;
+         }
+          .label
+          {
+              font-family: MyFont, 'Bookman Old Style';
+              font-size: 16px;
+          }
+    </style>
+</head>
+<body>
+    <div style='height: 300px; border: 1px solid #dfdfdf; padding: 4px;'>
+        <div class="Title">Evaluation</div>
+        <div class="Text">Course ID</div><select id="Select1">
+                                             <option>
+                                                 CSC455/F1-2019/SPR/09 - Cloud Technologies
+                                             </option>
+                                             <option>
+                                                 CSC395/FI-2019/SPR/09 - ST: Deveoping Web Applications
+
+                                             </option>
+                                             <option>
+                                                 CSC200/F1-2019/SPR/09 - Intermediate Programming
+
+                                             </option>
+
+        </select>
+        <div class="Text">Professor being evaluated</div> <select id="Select1">
     <option>
-        Spring        
+        Mario Guimaraes
     </option>
     <option>
-        Summer
+        Christopher Curwood
     </option>
     <option>
-        Fall
+        Razvan Mezei
     </option>
 
-</select>
-<h2>Year</h2><select id="Select1">
-    <option>
-        2019
-    </option>
-    <option>
-        2020
-    </option>
-    <option>
-        2021
-    </option>
+        </select>
+        <div class="text">Semester being evaluated</div>
+        <select id="Select1">
+            <option>
+                Spring
+            </option>
+            <option>
+                Summer
+            </option>
+            <option>
+                Fall
+            </option>
 
-</select>
+        </select>
+        <div class="text"></div>Year</div> <select id="Select1">
+            <option>
+                2019
+            </option>
+            <option>
+                2020
+            </option>
+            <option>
+                2021
+            </option>
+
+        </select>
+    
+    
+</body>
+</html>
