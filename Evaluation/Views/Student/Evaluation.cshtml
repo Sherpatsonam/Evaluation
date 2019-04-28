@@ -17,24 +17,27 @@
     <style>
         .Title {
             font-family: MyFont, sans-serif;
-            font-size: 24px;
+            font-size: 36px;
         }
           .Text
           {
               font-family: MyFont, Arial;
               font-size: 14px;
          }
-          .label
-          {
-              font-family: MyFont, 'Bookman Old Style';
-              font-size: 16px;
-          }
+        .content-wrapper {
+            margin: 0 auto;
+            max-width: 960px;
+        }
+
+  
     </style>
 </head>
 <body>
-    <div style='width: 300px; border: 2px solid #dfdfdf; padding: 4px;'>
-        <div class="Title">Evaluation</div>
-        <div class="Text">Course ID</div><select id="Select1">
+    
+    <div class="Title">Evaluation</div>
+    <hr />
+    <div class="Text">
+        Course ID          <select id="Select1">
             <option>
                 CSC455/F1-2019/SPR/09 - Cloud Technologies
             </option>
@@ -48,19 +51,26 @@
             </option>
 
         </select>
-        <div class="Text">Professor being evaluated</div> <select id="Select1">
+    </div>
+    <div class="Text">
+        Professor being Evaluated          <select id="Select1">
             <option>
                 Mario Guimaraes
             </option>
             <option>
                 Christopher Curwood
+
             </option>
             <option>
                 Razvan Mezei
+
             </option>
 
         </select>
-        <div class="text">Semester being evaluated</div>
+    </div>
+
+    <div class="text">
+        Semester being evaluated
         <select id="Select1">
             <option>
                 Spring
@@ -72,20 +82,337 @@
                 Fall
             </option>
 
-        </select>  
-    <div class="text">Year</div>
+        </select>
+        Year
+        <select id="Select1">
+            <option>
+                2019
+            </option>
+            <option>
+                2020
+            </option>
+            <option>
+                2021
+            </option>
+        </select>
+    </div>
+    <hr />
+    <div class="Title">Course Assesment</div>
+    <div class="text-body"> The course had clearly stated goals</div>
     <select id="Select1">
         <option>
-            2019
+            Strongly Agree
         </option>
         <option>
-            2020
+            Agree
         </option>
         <option>
-            2021
+            Neutral
         </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
     </select>
-    
+    <div class="text">Assignments were helpful to my learning process</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">Required reading was helpful (if applicable)</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">Instructional materials were of high quality and relevant</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">The course challenged me to learn</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">The outline/syllabus clearly stated the course’s content, grading criteria, and other expectations</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <hr />
+    <div class="Title">Instructor Assesment</div>
+    <div class="text-body"> Instructor was prepared for class.</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">Instructor demonstrates knowledge of the subject.</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">Instructor used effective teaching strategies.</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">Instructor returned assignments in a timely manner.</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">Instructor provided suggestions for improvement.</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">Grading was fair and was consistent with outline/syllabus</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">Instructor was enthusiastic about teaching the course.</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">Instructor showed concern for the student’s understanding.</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">There was opportunity for instructor/student interaction.</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <div class="text">The instructor encouraged different points of view when appropriate.</div>
+    <select id="Select1">
+        <option>
+            Strongly Agree
+        </option>
+        <option>
+            Agree
+        </option>
+        <option>
+            Neutral
+        </option>
+        <option>
+            Disagree
+        </option>
+        <option>
+            Strongly Disagree
+        </option>
+
+    </select>
+    <hr />
+    <div class="Title">Additional Comments:</div>
+    <input id="Text1" type="text" />
+
 </body>
 
+
 </html>
+<hr />
+<footer>
+    <input id="Button1" type="button" value="Submit Form" />
+</footer>
