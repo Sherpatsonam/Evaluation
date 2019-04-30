@@ -1,5 +1,74 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Evaluation.Models.Evaluation
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+@{
+    ViewBag.Title = "Department";
+
+}
+
+
+
+<h2>Department Overview</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<p>
+    <b>Professors</b> <br /><br />
+    Dr. Rezvan Mezai  <br />
+    Christopher Curwood <br />
+    Dr. Mario Guimaraes <br /><br />
+</p>
+
+<div>
+    <form method="get">
+
+        <h3>Here are your results</h3>
+
+        <!-- questions and answers in a table-->
+        
+        <table class="table">
+            <caption>@Html.DisplayFor(model => model.TeacherID)</caption>
+
+            <tr>
+                <th>Effective Teaching</th>
+                <td>@Html.DisplayFor(model => model.EffectiveTeaching)</td>
+            </tr>
+            <tr>
+                <th>Provides Feedback</th>
+                <td>@Html.DisplayFor(model => model.ProvidesFeedback)</td>
+            </tr>
+            <tr>
+                <th>Learning Climate</th>
+                <td>@Html.DisplayFor(model => model.learningClimate)</td>
+            </tr>
+            <tr>
+                <th>Demonstrates Knowledge</th>
+                <td>@Html.DisplayFor(model => model.DemonstrateKnowlege)</td>
+            </tr>
+            <tr>
+                <th>Professionalism</th>
+                <td>@Html.DisplayFor(model => model.professionalism)</td>
+            </tr>
+            <tr>
+                <th>Overall Ranking</th>
+                <td>@Html.DisplayFor(model => model.overAllRanking)</td>
+            </tr>
+        </table>
+    </form>
+</div>
+<p>
+    <a href="~/Login">Back to Login Page</a>
+</p>
 
 
