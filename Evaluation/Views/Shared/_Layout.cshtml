@@ -1,9 +1,28 @@
 ﻿<!DOCTYPE html>
-
+<style>
+    .body-content
+    {
+        background-color:black;
+        background-size:auto;
+    }
+    .container
+    {
+        background-color:black;
+        background-size:auto;
+    }
+    .container.body-content
+    {
+        color:white;
+    }
+    .navbar.navbar-inverse.navbar-fixed-top
+    {
+        background-color:black;
+    }
+</style>
 <html>
 
 <head>
-    <meta charset="windows-1251" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
