@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace Evaluation.Models
 {
+    [Table("Teacher")]
     public class Teacher
-    {
-        public int ID { get; set; }
+    {   
+        [Key]
+        public int TeacherID { get; set; }
         public string Name { get; set; }
       
         public string CourseID { get; set; }

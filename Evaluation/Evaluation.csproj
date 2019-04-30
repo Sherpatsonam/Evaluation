@@ -133,6 +133,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904300217159_createEvaluation.cs" />
+    <Compile Include="Migrations\201904300217159_createEvaluation.Designer.cs">
+      <DependentUpon>201904300217159_createEvaluation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Evaluation.cs" />
     <Compile Include="Models\EvaluationDB.cs" />
     <Compile Include="Models\Student.cs" />
@@ -192,6 +197,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904300217159_createEvaluation.resx">
+      <DependentUpon>201904300217159_createEvaluation.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

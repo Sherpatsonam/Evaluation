@@ -13,7 +13,8 @@ namespace Evaluation.Controllers
         // GET: DeptHead
         public ActionResult getEvaluations()
         {
-            return View(db.Evaluations.ToList());
+            var data = db.Evaluations.ToList();
+            return View(data);
         }
     }
 }
