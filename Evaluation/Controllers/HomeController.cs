@@ -26,5 +26,9 @@ namespace Evaluation.Controllers
 
             return View();
         }
+        public ActionResult Student()
+        {
+
+        }
     }
 }
