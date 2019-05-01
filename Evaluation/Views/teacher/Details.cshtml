@@ -1,0 +1,49 @@
+﻿@model Evaluation.Models.Evaluation
+
+
+<h2>Details</h2>
+
+<!-- teacher only sees forms based on the teacherID they selected on previous page -->
+<div>
+    <form method="get">
+
+        <!-- questions and answers in a table-->
+        <table class="table">
+            <caption>Questions</caption>
+            <tr>
+                <th>EXAMPLE question here</th>
+                <td>This is how it will look with answer data.</td>
+            </tr>
+            <tr>
+                <th>Effective Teaching</th>
+                <td>@Html.DisplayFor(model => model.EffectiveTeaching)</td>
+            </tr>
+            <tr>
+                <th>Provides Feedback</th>
+                <td>@Html.DisplayFor(model => model.ProvidesFeedback)</td>
+            </tr>
+            <tr>
+                <th>Learning Climate</th>
+                <td>@Html.DisplayFor(model => model.learningClimate)</td>
+            </tr>
+            <tr>
+                <th>Demonstrates Knowledge</th>
+                <td>@Html.DisplayFor(model => model.DemonstrateKnowlege)</td>
+            </tr>
+            <tr>
+                <th>Professionalism</th>
+                <td>@Html.DisplayFor(model => model.professionalism)</td>
+            </tr>
+            <tr>
+                <th>Overall Ranking</th>
+                <td>@Html.DisplayFor(model => model.overAllRanking)</td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!-- Navigation Links-->
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    <a href="~/Login">Back to Login Page</a>
+</p>
