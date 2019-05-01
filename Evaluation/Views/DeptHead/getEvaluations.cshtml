@@ -1,10 +1,8 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model Evaluation.Models.Evaluation
+@model IEnumerable<Evaluation.Models.Evaluation>
 <br />
 <br />
 <br />
@@ -36,35 +34,38 @@
         <h3>Here are your results</h3>
 
         <!-- questions and answers in a table-->
-        
-        <table class="table">
-            <caption>@Html.DisplayFor(model => model.TeacherID)</caption>
+        @foreach (var item in Model)
+        {
+            <table class="table">
+                <caption>@Html.DisplayFor(modelItem => item.TeacherID)</caption>
 
-            <tr>
-                <th>Effective Teaching</th>
-                <td>@Html.DisplayFor(model => model.EffectiveTeaching)</td>
-            </tr>
-            <tr>
-                <th>Provides Feedback</th>
-                <td>@Html.DisplayFor(model => model.ProvidesFeedback)</td>
-            </tr>
-            <tr>
-                <th>Learning Climate</th>
-                <td>@Html.DisplayFor(model => model.learningClimate)</td>
-            </tr>
-            <tr>
-                <th>Demonstrates Knowledge</th>
-                <td>@Html.DisplayFor(model => model.DemonstrateKnowlege)</td>
-            </tr>
-            <tr>
-                <th>Professionalism</th>
-                <td>@Html.DisplayFor(model => model.professionalism)</td>
-            </tr>
-            <tr>
-                <th>Overall Ranking</th>
-                <td>@Html.DisplayFor(model => model.overAllRanking)</td>
-            </tr>
-        </table>
+                <tr>
+                    <th>Effective Teaching</th>
+                    <td>@Html.DisplayFor(modelItem => item.EffectiveTeaching)</td>
+                </tr>
+                <tr>
+                    <th>Provides Feedback</th>
+                    <td>@Html.DisplayFor(modelItem => item.ProvidesFeedback)</td>
+                </tr>
+                <tr>
+                    <th>Learning Climate</th>
+                    <td>@Html.DisplayFor(modelItem => item.learningClimate)</td>
+                </tr>
+                <tr>
+                    <th>Demonstrates Knowledge</th>
+                    <td>@Html.DisplayFor(modelItem =>item.DemonstrateKnowlege)</td>
+                </tr>
+                <tr>
+                    <th>Professionalism</th>
+                    <td>@Html.DisplayFor(modelItem =>item.professionalism)</td>
+                </tr>
+                <tr>
+                    <th>Overall Ranking</th>
+                    <td>@Html.DisplayFor(modelItem =>item.overAllRanking)</td>
+                </tr>
+            </table>
+        }
+
     </form>
 </div>
 <p>
