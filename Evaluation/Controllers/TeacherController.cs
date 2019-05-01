@@ -20,15 +20,15 @@ namespace Evaluation.Controllers
 
         // GET: Evaluations
         // Show a teacher's evaluation results
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? teacherid, int? std)
         {
-            if (id==null)
+            if (teacherid==null && std == null) 
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             // request a complete evaluation form based on teacherID
-            Evaluation.Models.Evaluation eval = db.Evaluations.Where(x => x.TeacherID == id).FirstOrDefault();
+            Evaluation.Models.Evaluation eval = db.Evaluations.Where(x => x.TeacherID == teacherid && x.StudentID==std).FirstOrDefault();
             if (eval == null)
             {
                 return HttpNotFound();
