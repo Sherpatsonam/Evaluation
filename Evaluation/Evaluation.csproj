@@ -135,7 +135,10 @@
     </Compile>
     <Compile Include="Models\Evaluation.cs" />
     <Compile Include="Models\EvaluationDB.cs" />
-    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Student.cs">
+      <BrowseToURL>http://localhost:49942/Student/Evaluation</BrowseToURL>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
