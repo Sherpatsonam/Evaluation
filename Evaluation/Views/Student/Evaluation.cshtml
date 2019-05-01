@@ -15,9 +15,12 @@
 <head>
     <title>Evaluation</title>
     <style>
-        .Title {
+        .jumbotron {
             font-family: MyFont, sans-serif;
-            font-size: 36px;
+            font-size: 72px;
+            color:white;
+            text-align:center;
+            background-color:darkred;
         }
           .Text
           {
@@ -28,15 +31,19 @@
             margin: 0 auto;
             max-width: 960px;
         }
-
+        .col-md-4
+        {
+            grid-template-columns:subgrid;
+        }
+        
   
     </style>
 </head>
 <body>
     
-    <div class="Title">Evaluation</div>
-    <hr />
-    <div class="Text">
+    <div class="jumbotron">Evaluation</div>
+    
+    <div class="col-md-4">
         Course ID          <select id="Select1">
             <option>
                 CSC455
@@ -52,7 +59,7 @@
 
         </select>
     </div>
-    <div class="Text">
+    <div class="col-md-4">
         Professor being Evaluated          <select id="Select1">
             <option>
                 Mario Guimaraes
@@ -69,7 +76,7 @@
         </select>
     </div>
 
-    <div class="text">
+    <div class="col-md-4">
         Semester being evaluated
         <select id="Select1">
             <option>
@@ -194,5 +201,5 @@
 </html>
 <hr />
 <footer>
-    <input id="Button1" type="button" value="Submit Form" />
+    <input id="Button1" type="submit" value="Submit Form" />
 </footer>
