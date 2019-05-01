@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace Evaluation.Controllers
 {
-    public class StudentController : Controller
+    public class LoginController : Controller
     {
-        // GET: Student
-        public ActionResult Evaluation()
+        // GET: Login
+        public ActionResult Login()
         {
             return View();
         }
