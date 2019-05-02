@@ -29,12 +29,14 @@ namespace Evaluation.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:49942/DeptHead/findEvaluations");
+                client.BaseAddress = new Uri("http://localhost:49942/DeptHead/findEvaluations");
+
 
                 //HTTP POST
                 string json = JsonConvert.SerializeObject(teacherName, Formatting.Indented);
                 var httpContent = new StringContent(json);
-                var postTask = client.PostAsync("DeptHead/getEvaluations",httpContent);                
+                var postTask = client.PostAsync("DeptHead/getEvaluations",httpContent);
+                
                 postTask.Wait();
 
                 var result = postTask.Result;
