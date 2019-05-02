@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,10 +12,28 @@ namespace Evaluation.Controllers
     {
         private EvaluationDB db = new EvaluationDB();
         // GET: DeptHead
-        public ActionResult getEvaluations()
+        public ActionResult getEvaluations(int? id)
         {
-            
-            return View(db.Evaluations.ToList());
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            // request a complete evaluation form based on teacherID
+            List<Evaluation.Models.Evaluation> eval = db.Evaluations.Where(x => x.TeacherID == id).ToList();
+            if (eval == null)
+            {
+                return HttpNotFound();
+            }
+            return View(eval);
         }
+
+        public ActionResult findEvaluation()
+        {
+            return View();
+        }
+
+       
     }
 }
