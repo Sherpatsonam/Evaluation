@@ -14,29 +14,34 @@
 
 }
 
+
+
 <h2>Department Overview</h2>
 <h3>@ViewBag.Message</h3>
 
 
-<label for="teacherid">Select a teacher</label>
-<form action="/Teacher/Details" method="get">
 
 
-    <!-- Teacher ID dropdown selection-->
-    <select name="teacherid">
-        <option value="3">Dr. Rezvan Mezai</option>
+<b>Please select from the dropdown to view the evaluation of the professors:</b>
+<form action="/DeptHead/getEvaluations" method="get">
+
+    <select name="id">
+
+        <option value="3" >Dr. Rezvan Mezai</option>
         <option value="2">Christopher Curwood</option>
         <option value="1">Dr. Mario Guimaraes</option>
     </select>
 
-    <!-- Student ID user text input-->
-    <h3>student id:</h3>
-    <input type="text" name="std" />
+
 
 
     <input type="submit" value="submit">
 </form>
 
+
+
+
 <p>
     <a href="~/Login">Back to Login Page</a>
 </p>
+
