@@ -13,15 +13,23 @@ namespace Evaluation.Controllers
         private EvaluationDB db = new EvaluationDB();
         // POST: Teacher
         // Select a teacher ID to determine which evaluation to show
-        public ActionResult Index()
+        public ActionResult Index(User user)
         {
-            return View();
+            if (user.username == "teacher")
+            {
+                return View();
+            }
+            return RedirectToAction("../Login/Login");
         }
 
         // GET: Evaluations
         // Show a teacher's evaluation results
-        public ActionResult Details(int? teacherid, int? std)
+        public ActionResult Details(int? teacherid, int? std, string graded)
         {
+            if (graded != "yes")
+            {
+                return View("Error");
+            }
             if (teacherid==null && std == null) 
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

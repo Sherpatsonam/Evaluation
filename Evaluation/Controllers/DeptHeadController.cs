@@ -29,11 +29,15 @@ namespace Evaluation.Controllers
             return View(eval);
         }
 
-        public ActionResult findEvaluation()
+        public ActionResult findEvaluation(User user)
         {
-            return View();
+            if (user.username == "department")
+            {
+                return View();
+            }
+            return RedirectToAction("../Login/Login");
         }
 
-       
+
     }
 }
