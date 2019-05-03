@@ -8,6 +8,10 @@ namespace Evaluation.Models
 {
     public class EvaluationDB: DbContext
     {
+        public EvaluationDB() : base("EvaluationDB")
+        {
+
+        }
         public DbSet<Student> Students { get; set; }
         public DbSet<Evaluation> Evaluations { get; set; }
         public DbSet<Teacher> Teachers { get; set; }

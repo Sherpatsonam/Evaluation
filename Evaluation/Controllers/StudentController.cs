@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Evaluation.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,13 @@ namespace Evaluation.Controllers
     public class StudentController : Controller
     {
         // GET: Student
-        public ActionResult Evaluation()
+        public ActionResult Evaluation(User user)
         {
-            return View();
+            if (user.username == "student")
+            {
+                return View();
+            }
+            return RedirectToAction("../Login/Login");
         }
     }
 }
