@@ -6,8 +6,8 @@ Three types of users: Only students fill in evaluation Faculty can only see the 
 Who to interview: obtain blank form for mid-term and final evaluation. Interview MSSA coordinator and Department Chair.
 
 
-#clone the project.
-#update nuget packages
-#In package manage console 
-#Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r
-#Rebuild the solution
+- clone the project.
+- update nuget packages
+- In package manage console 
+```Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r```
+- Rebuild the solution
