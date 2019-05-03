@@ -7,6 +7,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -16,13 +18,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Evaluation Form", "Student", "Teacher", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Evaluation Form", "Login", "Login", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Student", "Evaluation", "Student")</li>
                     <li>@Html.ActionLink("Teacher", "Index", "Teacher")</li>
-                    <li>@Html.ActionLink("Department", "Index", "DeptHead")</li>
+                    <li>@Html.ActionLink("Department", "findEvaluation", "DeptHead")</li>
                 </ul>
             </div>
         </div>
@@ -40,3 +42,11 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+<style>
+    body {
+        background-image: url('../../Content/Saint-Martins-University.jpg');
+        background-repeat: no-repeat;
+        background-position: Top;
+        align-content:center;
+    }
+</style>
