@@ -37,7 +37,7 @@ namespace Evaluation.Controllers
             {
                 if (password == "student")
                 {
-                    List<int> stList = db.Evaluations.Select(m => m.StudentID).ToList();
+                    List<int> stList = db.Students.Select(m => m.StudentID).ToList();
                     ViewBag.Studlist = new SelectList(stList);
 
                     return View("../Student/Index", user);
