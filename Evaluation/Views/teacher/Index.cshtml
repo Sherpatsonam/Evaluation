@@ -14,8 +14,8 @@
 
 }
 
-<h2>Department Overview</h2>
-<h3>@ViewBag.Message</h3>
+<h2>Teacher Overview</h2>
+
 
 
 <label for="teacherid">Select a teacher</label>
@@ -31,8 +31,9 @@
 
     <!-- Student ID user text input-->
     <h3>Student Id:</h3>
-    <input type="text" name="std" />
-    <h3>The Student is Graded?</h3>
+    <!--<input type="text" name="std" >-->
+    @Html.DropDownList("std", (SelectList)ViewBag.Studlist, "Select Student ID")
+    <h3>Is the student Graded ?</h3>
     <select name="graded">
         <option value="yes">Yes</option>
         <option value="no">No</option>

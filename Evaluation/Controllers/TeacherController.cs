@@ -28,7 +28,7 @@ namespace Evaluation.Controllers
         {
             if (graded != "yes")
             {
-                return View("Error");
+                return View("Unauthorized");
             }
             if (teacherid==null && std == null) 
             {
@@ -39,7 +39,7 @@ namespace Evaluation.Controllers
             Evaluation.Models.Evaluation eval = db.Evaluations.Where(x => x.TeacherID == teacherid && x.StudentID==std).FirstOrDefault();
             if (eval == null)
             {
-                return HttpNotFound();
+                return View("Error");
             }
             return View(eval);
         }

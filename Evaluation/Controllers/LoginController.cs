@@ -9,6 +9,7 @@ namespace Evaluation.Controllers
 {
     public class LoginController : Controller
     {
+        private EvaluationDB db = new EvaluationDB();
         User user = new User();
         // GET: Login
         public ActionResult Login()
@@ -25,19 +26,24 @@ namespace Evaluation.Controllers
             {
                 if (password == "teacher")
                 {
+                    List<int> stList = db.Evaluations.Select(m => m.StudentID).ToList();
+                    ViewBag.Studlist = new SelectList(stList);
                     return View("../Teacher/index", user);
 
                 }
-                else return View("Error");
+                else return View("Unauthorized");
             }
             if (username == "student")
             {
                 if (password == "student")
                 {
-                    return View("../Student/Evaluation", user);
+                    List<int> stList = db.Evaluations.Select(m => m.StudentID).ToList();
+                    ViewBag.Studlist = new SelectList(stList);
+
+                    return View("../Student/Index", user);
 
                 }
-                else return View("Error");
+                else return View("Unauthorized");
             }
             if (username == "department")
             {
@@ -46,7 +52,7 @@ namespace Evaluation.Controllers
                     return View("../DeptHead/findEvaluation", user);
 
                 }
-                else return View("Error");
+                else return View("Unauthorized");
             }
 
            

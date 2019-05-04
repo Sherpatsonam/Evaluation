@@ -37,33 +37,31 @@ namespace Evaluation.Migrations
                         Year = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.StudentID);
-            
+
             CreateTable(
                 "dbo.Teacher",
                 c => new
-                    {
-                        TeacherID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        CourseID = c.String(),
-                        Teacher_TeacherID = c.Int(),
-                        Student_StudentID = c.Int(),
-                    })
+                {
+                    TeacherID = c.Int(nullable: false, identity: true),
+                    Name = c.String(),
+                    CourseID = c.String(),
+
+                    StudentID = c.Int(),
+                })
                 .PrimaryKey(t => t.TeacherID)
-                .ForeignKey("dbo.Teacher", t => t.Teacher_TeacherID)
-                .ForeignKey("dbo.Student", t => t.Student_StudentID)
-                .Index(t => t.Teacher_TeacherID)
-                .Index(t => t.Student_StudentID);
+               .ForeignKey("dbo.Teacher", t => t.TeacherID)
+               .ForeignKey("dbo.Student", t => t.StudentID)
+               .Index(t => t.TeacherID)
+                .Index(t => t.StudentID);
             
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Evaluation", "StudentID", "dbo.Student");
-            DropForeignKey("dbo.Teacher", "Student_StudentID", "dbo.Student");
-            DropForeignKey("dbo.Teacher", "Teacher_TeacherID", "dbo.Teacher");
+            
             DropForeignKey("dbo.Evaluation", "TeacherID", "dbo.Teacher");
-            DropIndex("dbo.Teacher", new[] { "Student_StudentID" });
-            DropIndex("dbo.Teacher", new[] { "Teacher_TeacherID" });
+            
             DropIndex("dbo.Evaluation", new[] { "StudentID" });
             DropIndex("dbo.Evaluation", new[] { "TeacherID" });
             DropTable("dbo.Teacher");

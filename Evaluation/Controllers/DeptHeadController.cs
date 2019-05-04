@@ -24,7 +24,7 @@ namespace Evaluation.Controllers
             List<Evaluation.Models.Evaluation> eval = db.Evaluations.Where(x => x.TeacherID == id).ToList();
             if (eval == null)
             {
-                return HttpNotFound();
+                return View("Error");
             }
             return View(eval);
         }

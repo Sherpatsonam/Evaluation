@@ -225,6 +225,9 @@
     <Content Include="Views\DeptHead\findEvaluation.cshtml" />
     <Content Include="Views\Teacher\Details.cshtml" />
     <Content Include="Views\Teacher\Index.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Shared\Submitted.cshtml" />
+    <Content Include="Views\Shared\Unauthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

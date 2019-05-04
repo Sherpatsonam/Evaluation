@@ -9,7 +9,7 @@ namespace Evaluation.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Evaluation.Models.EvaluationDB context)
