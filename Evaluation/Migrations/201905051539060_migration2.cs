@@ -3,7 +3,7 @@ namespace Evaluation.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class migration1 : DbMigration
+    public partial class migration2 : DbMigration
     {
         public override void Up()
         {
@@ -35,6 +35,7 @@ namespace Evaluation.Migrations
                         Name = c.String(),
                         Semester = c.String(),
                         Year = c.Int(nullable: false),
+                        username = c.String(),
                     })
                 .PrimaryKey(t => t.StudentID);
             
@@ -45,6 +46,7 @@ namespace Evaluation.Migrations
                         TeacherID = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         CourseID = c.String(),
+                        username = c.String(),
                     })
                 .PrimaryKey(t => t.TeacherID);
             

@@ -23,61 +23,69 @@ namespace Evaluation.Controllers
             user.password = password;
 
             User person = db.Users.Where(m => m.username == username).FirstOrDefault();
-
-            if (username == person.username)
+            if (person != null)
             {
-                if (password == person.password)
+                if (username == person.username)
                 {
-                    if (person.status == "teacher")
+                    if (password == person.password)
                     {
-                        List<int> stList = db.Evaluations.Select(m => m.StudentID).ToList();
-                        ViewBag.Studlist = new SelectList(stList);
-                        List<string> teachList = db.Teachers.Select(m => m.Name).ToList();
-                        ViewBag.Teachlist = new SelectList(teachList);
-                      
-                        return View("../Teacher/index", person);
+                        if (person.status == "teacher")
+                        {
 
-                    }
-                }
-               
-                else return View("Unauthorized");
-            }
-            if (username == person.username)
-            {
-                if (password == person.password)
-                {
-                    if (person.status == "student")
-                    {
-                        List<int> stList = db.Students.Select(m => m.StudentID).ToList();
-                        ViewBag.Studlist = new SelectList(stList);
-                        List<string> teachList = db.Teachers.Select(m => m.Name).ToList();
-                        ViewBag.Teachlist = new SelectList(teachList);
-                        return View("../Student/Index", person);
+                            Teacher teacher = db.Teachers.Where(m => m.username == user.username).FirstOrDefault();
+                            TempData["teacherName"] = teacher.Name;
+                            List<int> stList = db.Evaluations.Where(m => m.TeacherID == teacher.TeacherID).Select(m => m.StudentID).ToList();
+                            ViewBag.Studlist = new SelectList(stList);
+                            return View("../Teacher/index", person);
+
+                        }
                     }
 
-                   
-
+                    else return View("Unauthorized");
                 }
-                else return View("Unauthorized");
-            }
-            if (username == person.username)
-            {
-                if (password == person.password)
+
+                if (username == person.username)
                 {
-                    if (person.status == "department")
+                    if (password == person.password)
                     {
-                        List<string> teachList = db.Teachers.Select(m => m.Name).ToList();
-                        ViewBag.Teachlist = new SelectList(teachList);
-                        return View("../DeptHead/findEvaluation", person);
-                    }
-                   
+                        if (person.status == "student")
+                        {
+                            Student stud = db.Students.Where(m => m.username == user.username).FirstOrDefault();
+                            @TempData["studentId"] = stud.StudentID;
+                            @TempData["studentName"] = stud.Name;
+                            List<string> teachList = db.Teachers.Select(m => m.Name).ToList();
+                            ViewBag.Teachlist = new SelectList(teachList);
 
+
+                            return View("../Student/Index", person);
+                        }
+
+
+
+                    }
+                    else return View("Unauthorized");
                 }
-                else return View("Unauthorized");
+                if (username == person.username)
+                {
+                    if (password == person.password)
+                    {
+                        if (person.status == "department")
+                        {
+                            List<string> teachList = db.Teachers.Select(m => m.Name).ToList();
+                            ViewBag.Teachlist = new SelectList(teachList);
+                            return View("../DeptHead/findEvaluation", person);
+                        }
+
+
+                    }
+                    else return View("Unauthorized");
+                }
+                return View();
             }
 
-           
-            return View();
+            return View("Unauthorized"); ;
+
+
         }
     }
 }

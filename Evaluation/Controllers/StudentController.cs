@@ -18,7 +18,6 @@ namespace Evaluation.Controllers
             if (user.status == "student")
             {
                 
-
                 return View();
             }
             return RedirectToAction("../Login/Login");

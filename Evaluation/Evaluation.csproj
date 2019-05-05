@@ -133,9 +133,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905042119061_migration1.cs" />
-    <Compile Include="Migrations\201905042119061_migration1.Designer.cs">
-      <DependentUpon>201905042119061_migration1.cs</DependentUpon>
+    <Compile Include="Migrations\201905051539060_migration2.cs" />
+    <Compile Include="Migrations\201905051539060_migration2.Designer.cs">
+      <DependentUpon>201905051539060_migration2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Evaluation.cs" />
@@ -242,8 +242,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905042119061_migration1.resx">
-      <DependentUpon>201905042119061_migration1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905051539060_migration2.resx">
+      <DependentUpon>201905051539060_migration2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

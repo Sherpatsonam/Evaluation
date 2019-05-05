@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+   
 }
 
 <br />
@@ -9,31 +10,31 @@
 <br />
 <br />
 <br />
-@{
-    ViewBag.Title = "Department";
 
-}
 
-<h2>Student Information:</h2>
+
 
 
 
 
 <form action="/Student/Evaluation" method="get">
-
     <div>
+        <h2>Student Information:</h2>
+        <h4>Student ID: @TempData["studentId"]</h4> 
+        <h4>Student Name: @TempData["studentName"] </h4>
+    </div>
+    <div>
+        <input type="hidden" name="std" value="@TempData["studentId"]" />
         <h3>Professor being Evaluated</h3>
 
         @Html.DropDownList("teachername", (SelectList)ViewBag.Teachlist, "Select teacher")
-        <h3>Student Id:</h3>
-        <!--<input type="text" name="std" >-->
-        @Html.DropDownList("std", (SelectList)ViewBag.Studlist, "Select Student ID")
+
     </div>
 
 
     <!-- Student ID user text input-->
-    <br/>
-    <br/>
+    <br />
+    <br />
 
 
     <input type="submit" value="submit">

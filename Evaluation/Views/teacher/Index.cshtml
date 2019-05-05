@@ -10,7 +10,7 @@
 <br />
 <br />
 @{
-    ViewBag.Title = "Department";
+    string teachername = @TempData["teacherName"].ToString();
 
 }
 
@@ -18,15 +18,15 @@
 
 
 
-<label for="teacherid">Select a teacher</label>
+
 <form action="/Teacher/Details" method="get">
 
 
-    <!-- Teacher ID dropdown selection-->
-    <h3>Teacher Name:</h3>
-    <!--<input type="text" name="std" >-->
-    @Html.DropDownList("teachername", (SelectList)ViewBag.Teachlist, "Select teacher")
 
+
+
+    <h3>Teacher Name: @teachername </h3>
+    <input type="hidden" name="teachername" value="@teachername" />
     <!-- Student ID user text input-->
     <h3>Student Id:</h3>
     <!--<input type="text" name="std" >-->
