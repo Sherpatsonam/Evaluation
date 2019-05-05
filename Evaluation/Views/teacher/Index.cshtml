@@ -23,11 +23,9 @@
 
 
     <!-- Teacher ID dropdown selection-->
-    <select name="teacherid">
-        <option value="3">Dr. Rezvan Mezai</option>
-        <option value="2">Christopher Curwood</option>
-        <option value="1">Dr. Mario Guimaraes</option>
-    </select>
+    <h3>Teacher Name:</h3>
+    <!--<input type="text" name="std" >-->
+    @Html.DropDownList("teachername", (SelectList)ViewBag.Teachlist, "Select teacher")
 
     <!-- Student ID user text input-->
     <h3>Student Id:</h3>

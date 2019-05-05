@@ -15,20 +15,28 @@ namespace Evaluation.Controllers
         
         public ActionResult Index(User user)
         {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-            if (user.username == "student")
+            if (user.status == "student")
             {
                 
-                             
+
                 return View();
             }
             return RedirectToAction("../Login/Login");
         }
         
-        public ActionResult Evaluation(int? std)
+        public ActionResult Evaluation(int? std, string teachername)
         {
             if (std != null)
             {
-                TempData["std"] = std;
+                Teacher teacher = db.Teachers.Where(m => m.Name == teachername).FirstOrDefault();
+                Student stud = db.Students.Where(m => m.StudentID == std).FirstOrDefault();
+                TempData["teacher"] = teacher;
+                TempData["course"] = teacher.CourseID;
+                TempData["std"] = stud;
+                TempData["semester"] = stud.Semester;
+                TempData["year"] = stud.Year;
+                db.ThisObjectContext.Detach(teacher);
+                db.ThisObjectContext.Detach(stud);
                 return View();
             }
 
@@ -40,13 +48,13 @@ namespace Evaluation.Controllers
 
         [HttpPost]
        
-        public ActionResult Evaluation([Bind(Include = "TeacherID, EffectiveTeaching, ProvidesFeedback, learningClimate,DemonstrateKnowlege,professionalism,overAllRanking ")] Evaluation.Models.Evaluation eval)
+        public ActionResult Evaluation([Bind(Include = " EffectiveTeaching, ProvidesFeedback, learningClimate,DemonstrateKnowlege,professionalism,overAllRanking ")] Evaluation.Models.Evaluation eval)
         {
-            eval.StudentID = Convert.ToInt32(TempData["std"]);
-            Student stud = db.Students.Where(m => m.StudentID == eval.StudentID).FirstOrDefault();
-            eval.Student = stud;
-            //Teacher teacher = db.Teachers.Where(m => m.TeacherID == eval.TeacherID).FirstOrDefault();
-            //eval.Teacher = teacher;
+           
+            Teacher teacher= TempData["teacher"] as Teacher;
+            Student student= TempData["std"] as Student;
+            eval.TeacherID = teacher.TeacherID;
+            eval.StudentID = student.StudentID;
             try
             {
                 if (ModelState.IsValid)

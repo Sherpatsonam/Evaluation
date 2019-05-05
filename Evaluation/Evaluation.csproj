@@ -133,9 +133,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904300217159_createEvaluation.cs" />
-    <Compile Include="Migrations\201904300217159_createEvaluation.Designer.cs">
-      <DependentUpon>201904300217159_createEvaluation.cs</DependentUpon>
+    <Compile Include="Migrations\201905042119061_migration1.cs" />
+    <Compile Include="Migrations\201905042119061_migration1.Designer.cs">
+      <DependentUpon>201905042119061_migration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Evaluation.cs" />
@@ -236,15 +236,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904300217159_createEvaluation.resx">
-      <DependentUpon>201904300217159_createEvaluation.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905042119061_migration1.resx">
+      <DependentUpon>201905042119061_migration1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

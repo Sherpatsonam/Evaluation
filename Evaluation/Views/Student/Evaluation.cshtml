@@ -56,73 +56,30 @@
     <div class="jumbotron">Evaluation</div>
 
     <div class="col-md-4">
-        Course ID          <select id="Select1">
-            <option>
-                CSC455
-            </option>
-            <option>
-                CSC395
-
-            </option>
-            <option>
-                CSC200
-
-            </option>
-
-        </select>
+        Course ID:@TempData["course"]
     </div>
+
+    <div class="col-md-4">
+        Semester: @TempData["semester"]
+
+
+    </div>
+
+    <div class="col-md-4">
+        Year: @TempData["year"]
+
+
+    </div>
+
+
     @model Evaluation.Models.Evaluation
     @using (Html.BeginForm("Evaluation", "Student", FormMethod.Post))
     {
-        <div class="col-md-4">
-            Professor being Evaluated          <select name="TeacherID">
-                <option value="1">
-                    Mario Guimaraes
-                </option>
-                <option value="2">
-                    Christopher Curwood
-
-                </option>
-                <option value="3">
-                    Razvan Mezei
-
-                </option>
-
-            </select>
-        </div>
-
-        <div class="col-md-4">
-            Semester being evaluated
-            <select id="Select1">
-                <option>
-                    Spring
-                </option>
-                <option>
-                    Summer
-                </option>
-                <option>
-                    Fall
-                </option>
-
-            </select>
-            Year
-            <select id="Select1">
-                <option>
-                    2019
-                </option>
-                <option>
-                    2020
-                </option>
-                <option>
-                    2021
-                </option>
-            </select>
-        </div>
         <hr />
         <hr />
 
         <div class="Title">Course Assesment</div>
-       
+
         <div class="text-body"> The teaching method was effective</div>
         <select name="EffectiveTeaching">
             <option value="satisfactory">
@@ -212,6 +169,7 @@
             <input id="Button1" type="submit" value="Submit Form" />
         </div>
     }
+  
 
 </body>
 

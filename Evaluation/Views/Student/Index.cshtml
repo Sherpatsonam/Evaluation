@@ -21,14 +21,20 @@
 
 <form action="/Student/Evaluation" method="get">
 
+    <div>
+        <h3>Professor being Evaluated</h3>
 
+        @Html.DropDownList("teachername", (SelectList)ViewBag.Teachlist, "Select teacher")
+        <h3>Student Id:</h3>
+        <!--<input type="text" name="std" >-->
+        @Html.DropDownList("std", (SelectList)ViewBag.Studlist, "Select Student ID")
+    </div>
 
 
     <!-- Student ID user text input-->
-    <h3>Student Id:</h3>
-    <!--<input type="text" name="std" >-->
-    @Html.DropDownList("std",(SelectList)ViewBag.Studlist, "Select Student ID")
-                    
+    <br/>
+    <br/>
+
 
     <input type="submit" value="submit">
 </form>

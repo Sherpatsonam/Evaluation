@@ -17,7 +17,7 @@
 
 
 <h2>Department Overview</h2>
-<h3>@ViewBag.Message</h3>
+
 
 
 
@@ -25,12 +25,9 @@
 <b>Please select from the dropdown to view the evaluation of the professors:</b>
 <form action="/DeptHead/getEvaluations" method="get">
 
-    <select name="id">
+    <h3>Teacher Name:</h3>
 
-        <option value="3">Dr. Rezvan Mezai</option>
-        <option value="2">Christopher Curwood</option>
-        <option value="1">Dr. Mario Guimaraes</option>
-    </select>
+    @Html.DropDownList("teachername", (SelectList)ViewBag.Teachlist, "Select teacher")
 
 
 
