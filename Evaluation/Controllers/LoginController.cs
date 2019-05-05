@@ -44,25 +44,33 @@ namespace Evaluation.Controllers
             }
             if (username == person.username)
             {
-                if (password == person.username)
+                if (password == person.password)
                 {
-                    List<int> stList = db.Students.Select(m => m.StudentID).ToList();
-                    ViewBag.Studlist = new SelectList(stList);
-                    List<string> teachList = db.Teachers.Select(m => m.Name).ToList();
-                    ViewBag.Teachlist = new SelectList(teachList);
+                    if (person.status == "student")
+                    {
+                        List<int> stList = db.Students.Select(m => m.StudentID).ToList();
+                        ViewBag.Studlist = new SelectList(stList);
+                        List<string> teachList = db.Teachers.Select(m => m.Name).ToList();
+                        ViewBag.Teachlist = new SelectList(teachList);
+                        return View("../Student/Index", person);
+                    }
 
-                    return View("../Student/Index", person);
+                   
 
                 }
                 else return View("Unauthorized");
             }
             if (username == person.username)
             {
-                if (password == person.username)
+                if (password == person.password)
                 {
-                    List<string> teachList = db.Teachers.Select(m => m.Name).ToList();
-                    ViewBag.Teachlist = new SelectList(teachList);
-                    return View("../DeptHead/findEvaluation", person);
+                    if (person.status == "department")
+                    {
+                        List<string> teachList = db.Teachers.Select(m => m.Name).ToList();
+                        ViewBag.Teachlist = new SelectList(teachList);
+                        return View("../DeptHead/findEvaluation", person);
+                    }
+                   
 
                 }
                 else return View("Unauthorized");
