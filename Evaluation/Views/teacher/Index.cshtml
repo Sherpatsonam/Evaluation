@@ -10,29 +10,28 @@
 <br />
 <br />
 @{
-    ViewBag.Title = "Department";
+    string teachername = @TempData["teacherName"].ToString();
 
 }
 
-<h2>Department Overview</h2>
-<h3>@ViewBag.Message</h3>
+<h2>Teacher Overview</h2>
 
 
-<label for="teacherid">Select a teacher</label>
+
+
 <form action="/Teacher/Details" method="get">
 
 
-    <!-- Teacher ID dropdown selection-->
-    <select name="teacherid">
-        <option value="3">Dr. Rezvan Mezai</option>
-        <option value="2">Christopher Curwood</option>
-        <option value="1">Dr. Mario Guimaraes</option>
-    </select>
 
+
+
+    <h3>Teacher Name: @teachername </h3>
+    <input type="hidden" name="teachername" value="@teachername" />
     <!-- Student ID user text input-->
     <h3>Student Id:</h3>
-    <input type="text" name="std" />
-    <h3>The Student is Graded?</h3>
+    <!--<input type="text" name="std" >-->
+    @Html.DropDownList("std", (SelectList)ViewBag.Studlist, "Select Student ID")
+    <h3>Is the student Graded ?</h3>
     <select name="graded">
         <option value="yes">Yes</option>
         <option value="no">No</option>

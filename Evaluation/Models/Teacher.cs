@@ -15,8 +15,10 @@ namespace Evaluation.Models
         public string Name { get; set; }
       
         public string CourseID { get; set; }
+        public string username { get; set; }
 
-        public virtual ICollection<Teacher> teachers { get; set; }
+
+
         public virtual ICollection<Evaluation> Evaluations { get; set; }
 
     }

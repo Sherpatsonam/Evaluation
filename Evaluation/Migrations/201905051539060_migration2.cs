@@ -3,7 +3,7 @@ namespace Evaluation.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class createEvaluation : DbMigration
+    public partial class migration2 : DbMigration
     {
         public override void Up()
         {
@@ -22,8 +22,8 @@ namespace Evaluation.Migrations
                         overAllRanking = c.String(),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Teacher", t => t.TeacherID, cascadeDelete: true)
                 .ForeignKey("dbo.Student", t => t.StudentID, cascadeDelete: true)
+                .ForeignKey("dbo.Teacher", t => t.TeacherID, cascadeDelete: true)
                 .Index(t => t.TeacherID)
                 .Index(t => t.StudentID);
             
@@ -35,6 +35,7 @@ namespace Evaluation.Migrations
                         Name = c.String(),
                         Semester = c.String(),
                         Year = c.Int(nullable: false),
+                        username = c.String(),
                     })
                 .PrimaryKey(t => t.StudentID);
             
@@ -45,27 +46,30 @@ namespace Evaluation.Migrations
                         TeacherID = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         CourseID = c.String(),
-                        Teacher_TeacherID = c.Int(),
-                        Student_StudentID = c.Int(),
+                        username = c.String(),
                     })
-                .PrimaryKey(t => t.TeacherID)
-                .ForeignKey("dbo.Teacher", t => t.Teacher_TeacherID)
-                .ForeignKey("dbo.Student", t => t.Student_StudentID)
-                .Index(t => t.Teacher_TeacherID)
-                .Index(t => t.Student_StudentID);
+                .PrimaryKey(t => t.TeacherID);
+            
+            CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        userId = c.Int(nullable: false, identity: true),
+                        username = c.String(),
+                        password = c.String(),
+                        status = c.String(),
+                    })
+                .PrimaryKey(t => t.userId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Evaluation", "StudentID", "dbo.Student");
-            DropForeignKey("dbo.Teacher", "Student_StudentID", "dbo.Student");
-            DropForeignKey("dbo.Teacher", "Teacher_TeacherID", "dbo.Teacher");
             DropForeignKey("dbo.Evaluation", "TeacherID", "dbo.Teacher");
-            DropIndex("dbo.Teacher", new[] { "Student_StudentID" });
-            DropIndex("dbo.Teacher", new[] { "Teacher_TeacherID" });
+            DropForeignKey("dbo.Evaluation", "StudentID", "dbo.Student");
             DropIndex("dbo.Evaluation", new[] { "StudentID" });
             DropIndex("dbo.Evaluation", new[] { "TeacherID" });
+            DropTable("dbo.Users");
             DropTable("dbo.Teacher");
             DropTable("dbo.Student");
             DropTable("dbo.Evaluation");

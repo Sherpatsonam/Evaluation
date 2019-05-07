@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+<form action="/Student/Evaluation" method="get">
+    <div>
+        <h2>Student Information:</h2>
+        <h4>Student ID: @TempData["studentId"]</h4> 
+        <h4>Student Name: @TempData["studentName"] </h4>
+    </div>
+    <div>
+        <input type="hidden" name="std" value="@TempData["studentId"]" />
+        <h3>Professor being Evaluated</h3>
+
+        @Html.DropDownList("teachername", (SelectList)ViewBag.Teachlist, "Select teacher")
+
+    </div>
+
+
+    <!-- Student ID user text input-->
+    <br />
+    <br />
+
+
+    <input type="submit" value="submit">
+</form>
+<br />
+
+<p>
+    <a href="~/Login">Back to Login Page</a>
+</p>

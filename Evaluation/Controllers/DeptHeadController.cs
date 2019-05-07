@@ -12,26 +12,37 @@ namespace Evaluation.Controllers
     {
         private EvaluationDB db = new EvaluationDB();
         // GET: DeptHead
-        public ActionResult getEvaluations(int? id)
+        public ActionResult getEvaluations(string teachername)
         {
 
-            if (id == null)
+            if (teachername == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Error");
             }
 
             // request a complete evaluation form based on teacherID
-            List<Evaluation.Models.Evaluation> eval = db.Evaluations.Where(x => x.TeacherID == id).ToList();
+           
+            
+
+            List<Evaluation.Models.Evaluation> eval = db.Evaluations.Where(x => x.Teacher.Name== teachername).ToList();
+            foreach( var item in eval)
+            {
+                Teacher teacher = db.Teachers.Where(m => m.Name == teachername).FirstOrDefault();
+                item.Teacher = teacher;
+                Student student = db.Students.Where(m => m.StudentID == item.StudentID).FirstOrDefault();
+                item.Student= student;
+
+            }
             if (eval == null)
             {
-                return HttpNotFound();
+                return View("Error");
             }
             return View(eval);
         }
 
         public ActionResult findEvaluation(User user)
         {
-            if (user.username == "department")
+            if (user.status == "department")
             {
                 return View();
             }

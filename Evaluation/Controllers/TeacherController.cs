@@ -15,7 +15,7 @@ namespace Evaluation.Controllers
         // Select a teacher ID to determine which evaluation to show
         public ActionResult Index(User user)
         {
-            if (user.username == "teacher")
+            if (user.status == "teacher")
             {
                 return View();
             }
@@ -24,22 +24,26 @@ namespace Evaluation.Controllers
 
         // GET: Evaluations
         // Show a teacher's evaluation results
-        public ActionResult Details(int? teacherid, int? std, string graded)
+        public ActionResult Details(string teachername, int? std, string graded)
         {
             if (graded != "yes")
             {
-                return View("Error");
+                return View("Unauthorized");
             }
-            if (teacherid==null && std == null) 
+            if (teachername == null && std == null) 
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Error");
             }
 
             // request a complete evaluation form based on teacherID
-            Evaluation.Models.Evaluation eval = db.Evaluations.Where(x => x.TeacherID == teacherid && x.StudentID==std).FirstOrDefault();
+            Teacher teacher = db.Teachers.Where(x => x.Name == teachername).FirstOrDefault();
+            Student student = db.Students.Where(x => x.StudentID == std).FirstOrDefault();
+            Evaluation.Models.Evaluation eval = db.Evaluations.Where(x => x.TeacherID == teacher.TeacherID && x.StudentID==std).FirstOrDefault();
+            eval.Teacher = teacher;
+            eval.Student = student;
             if (eval == null)
             {
-                return HttpNotFound();
+                return View("Error");
             }
             return View(eval);
         }

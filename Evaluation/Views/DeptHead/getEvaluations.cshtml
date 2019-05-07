@@ -60,37 +60,50 @@
 
             @foreach (var item in Model)
             {
-                <table class="table">
+        <table class="table">
 
-                    <tr>
-                        <th>Student ID: </th>
-                        <td>@Html.DisplayFor(modelItem => item.StudentID)</td>
-                    </tr>
-                    <tr>
-                        <th>Effective Teaching</th>
-                        <td>@Html.DisplayFor(modelItem => item.EffectiveTeaching)</td>
-                    </tr>
-                    <tr>
-                        <th>Provides Feedback</th>
-                        <td>@Html.DisplayFor(modelItem => item.ProvidesFeedback)</td>
-                    </tr>
-                    <tr>
-                        <th>Learning Climate</th>
-                        <td>@Html.DisplayFor(modelItem => item.learningClimate)</td>
-                    </tr>
-                    <tr>
-                        <th>Demonstrates Knowledge</th>
-                        <td>@Html.DisplayFor(modelItem => item.DemonstrateKnowlege)</td>
-                    </tr>
-                    <tr>
-                        <th>Professionalism</th>
-                        <td>@Html.DisplayFor(modelItem => item.professionalism)</td>
-                    </tr>
-                    <tr>
-                        <th>Overall Ranking</th>
-                        <td>@Html.DisplayFor(modelItem => item.overAllRanking)</td>
-                    </tr>
-                </table>
+            <tr>
+                <th>Student ID: </th>
+                <td>@Html.DisplayFor(modelItem => item.StudentID)</td>
+            </tr>
+            <tr>
+                <th>Semester: </th>
+                <td>@Html.DisplayFor(modelItem => item.Student.Semester)</td>
+            </tr>
+            <tr>
+                <th>Year: </th>
+                <td>@Html.DisplayFor(modelItem => item.Student.Year)</td>
+            </tr>
+            <tr>
+                <th>Course: </th>
+                <td>@Html.DisplayFor(modelItem => item.Teacher.CourseID)</td>
+            </tr>
+
+            <tr>
+                <th>Effective Teaching</th>
+                <td>@Html.DisplayFor(modelItem => item.EffectiveTeaching)</td>
+            </tr>
+            <tr>
+                <th>Provides Feedback</th>
+                <td>@Html.DisplayFor(modelItem => item.ProvidesFeedback)</td>
+            </tr>
+            <tr>
+                <th>Learning Climate</th>
+                <td>@Html.DisplayFor(modelItem => item.learningClimate)</td>
+            </tr>
+            <tr>
+                <th>Demonstrates Knowledge</th>
+                <td>@Html.DisplayFor(modelItem => item.DemonstrateKnowlege)</td>
+            </tr>
+            <tr>
+                <th>Professionalism</th>
+                <td>@Html.DisplayFor(modelItem => item.professionalism)</td>
+            </tr>
+            <tr>
+                <th>Overall Ranking</th>
+                <td>@Html.DisplayFor(modelItem => item.overAllRanking)</td>
+            </tr>
+        </table>
                 <br />
                 <br />
                 <br />
